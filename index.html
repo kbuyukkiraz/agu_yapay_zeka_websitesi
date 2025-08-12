@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EduAI - Tek Sayfa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+
+      :root {
+        --primary: #2e7d32;
+        --primary-light: #4caf50;
+        --primary-dark: #1b5e20;
+        --secondary: #ffc107;
+        --dark: #263238;
+        --light: #f5f5f5;
+        --white: #ffffff;
+        --gray: #eceff1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        background-color: var(--white);
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav .logo {
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      nav .logo::before {
+        content: "🧠";
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav ul li a {
+        color: var(--dark);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+        background-color: rgba(46, 125, 50, 0.1);
+      }
+
+      nav ul li a.active {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 8rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+        background-size: cover;
+        opacity: 0.1;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        max-width: 800px;
+        line-height: 1.2;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background-color: var(--white);
+        color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Features Section */
+      .features {
+        padding: 6rem 5%;
+        background-color: var(--white);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: var(--dark);
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.8;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background-color: var(--white);
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .feature-card p {
+        color: var(--dark);
+        opacity: 0.8;
+      }
+
+      /* Stats Section */
+      .stats {
+        padding: 5rem 5%;
+        background-color: var(--primary);
+        color: var(--white);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .stat-item h3 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-item p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--white);
+        padding: 4rem 5% 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--white);
+        padding-left: 5px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        nav ul {
+          margin-top: 1rem;
+          gap: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    
+
+      :root {
+        --primary: #2e7d32;
+        --primary-light: #4caf50;
+        --primary-dark: #1b5e20;
+        --secondary: #ffc107;
+        --dark: #263238;
+        --light: #f5f5f5;
+        --white: #ffffff;
+        --gray: #eceff1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        background-color: var(--white);
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav .logo {
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      nav .logo::before {
+        content: "🧠";
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav ul li a {
+        color: var(--dark);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+        background-color: rgba(46, 125, 50, 0.1);
+      }
+
+      nav ul li a.active {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* About Section */
+      .about {
+        padding: 5rem 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: var(--dark);
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.8;
+      }
+
+      .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 3rem;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        opacity: 0.9;
+      }
+
+      .mission-vision {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .mission-card,
+      .vision-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .mission-card h2,
+      .vision-card h2 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .mission-card h2::before {
+        content: "🎯";
+      }
+
+      .vision-card h2::before {
+        content: "🔮";
+      }
+
+      /* Team Section */
+      .team {
+        padding: 5rem 5%;
+        background: var(--white);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .team-member {
+        background: var(--light);
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .member-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1.5rem;
+        border: 5px solid var(--primary-light);
+      }
+
+      .team-member h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .team-member p.position {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .team-member p.bio {
+        font-size: 0.9rem;
+        color: var(--dark);
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        color: var(--primary);
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary-dark);
+        transform: translateY(-3px);
+      }
+
+      /* Timeline */
+      .timeline {
+        padding: 5rem 5%;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: var(--primary-light);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-item:nth-child(odd) {
+        padding-right: calc(50% + 2rem);
+        text-align: right;
+      }
+
+      .timeline-item:nth-child(even) {
+        padding-left: calc(50% + 2rem);
+        text-align: left;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 4px solid var(--white);
+        box-shadow: 0 0 0 4px var(--primary-light);
+      }
+
+      .timeline-content {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .timeline-date {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 5rem 5%;
+        background: var(--light);
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        font-size: 4rem;
+        color: var(--primary-light);
+        opacity: 0.2;
+        font-family: serif;
+        line-height: 1;
+      }
+
+      .testimonial-text {
+        margin-bottom: 1.5rem;
+        font-style: italic;
+        color: var(--dark);
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        color: var(--primary);
+        margin-bottom: 0.2rem;
+      }
+
+      .author-info p {
+        font-size: 0.9rem;
+        color: var(--dark);
+        opacity: 0.8;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--white);
+        padding: 4rem 5% 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--white);
+        padding-left: 5px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        nav ul {
+          margin-top: 1rem;
+          gap: 1rem;
+        }
+
+        .timeline::before {
+          left: 1rem;
+        }
+
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+          padding-left: 2rem;
+          padding-right: 0;
+          text-align: left;
+        }
+
+        .timeline-dot {
+          left: 0.5rem;
+        }
+      }
+    
+
+      :root {
+        --primary: #2e7d32;
+        --primary-light: #4caf50;
+        --primary-dark: #1b5e20;
+        --secondary: #ffc107;
+        --dark: #263238;
+        --light: #f5f5f5;
+        --white: #ffffff;
+        --gray: #eceff1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        background-color: var(--white);
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav .logo {
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      nav .logo::before {
+        content: "🧠";
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav ul li a {
+        color: var(--dark);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+        background-color: rgba(46, 125, 50, 0.1);
+      }
+
+      nav ul li a.active {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 5rem 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: var(--dark);
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.8;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .service-card p {
+        color: var(--dark);
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-link {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .service-link:hover {
+        gap: 1rem;
+      }
+
+      /* Pricing Section */
+      .pricing {
+        padding: 5rem 5%;
+        background: var(--white);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .pricing-card {
+        background: var(--light);
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.popular {
+        border: 2px solid var(--primary);
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: var(--primary);
+        color: var(--white);
+        padding: 0.5rem 1.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transform: rotate(45deg) translate(30%, -50%);
+        transform-origin: center;
+        width: 150px;
+        text-align: center;
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .price small {
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0.8;
+      }
+
+      .pricing-features {
+        margin-bottom: 2rem;
+      }
+
+      .pricing-features li {
+        margin-bottom: 0.8rem;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .pricing-features li::before {
+        content: "✓";
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem;
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      /* Comparison Section */
+      .comparison {
+        padding: 5rem 5%;
+        background: var(--light);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+        background: var(--white);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 1.2rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid var(--gray);
+      }
+
+      .comparison-table th {
+        background: var(--primary);
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      .comparison-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .comparison-table tr:hover td {
+        background: rgba(46, 125, 50, 0.05);
+      }
+
+      .feature-name {
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .available {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .unavailable {
+        color: #f44336;
+        opacity: 0.7;
+      }
+
+      /* FAQ Section */
+      .faq {
+        padding: 5rem 5%;
+      }
+
+      .faq-item {
+        margin-bottom: 1rem;
+        background: var(--white);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        color: var(--primary);
+      }
+
+      .faq-answer {
+        padding: 0 1.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-answer p {
+        padding-bottom: 1.5rem;
+        color: var(--dark);
+        opacity: 0.9;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+
+      .faq-toggle {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--white);
+        padding: 4rem 5% 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--white);
+        padding-left: 5px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        nav ul {
+          margin-top: 1rem;
+          gap: 1rem;
+        }
+
+        .comparison-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    
+
+      :root {
+        --primary: #2e7d32;
+        --primary-light: #4caf50;
+        --primary-dark: #1b5e20;
+        --secondary: #ffc107;
+        --dark: #263238;
+        --light: #f5f5f5;
+        --white: #ffffff;
+        --gray: #eceff1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        background-color: var(--white);
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav .logo {
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      nav .logo::before {
+        content: "🧠";
+        font-size: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      nav ul li a {
+        color: var(--dark);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+        background-color: rgba(46, 125, 50, 0.1);
+      }
+
+      nav ul li a.active {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 5%;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-header h1 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: var(--dark);
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.8;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .contact-info {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-info h2 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-top: 0.3rem;
+      }
+
+      .info-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .info-content p,
+      .info-content a {
+        color: var(--dark);
+        opacity: 0.8;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .info-content a:hover {
+        color: var(--primary);
+      }
+
+      .contact-form {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-form h2 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem;
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .map-container {
+        margin-top: 3rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark);
+        color: var(--white);
+        padding: 4rem 5% 2rem;
+        margin-top: 5rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--white);
+        padding-left: 5px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        nav ul {
+          margin-top: 1rem;
+          gap: 1rem;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    
+html {
+  scroll-behavior: smooth;
+}
+nav ul li a.active {
+  background-color: rgba(46, 125, 50, 0.1);
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">EduAI</div>
+  <ul>
+    <li><a href="#anasayfa" class="active">Anasayfa</a></li>
+    <li><a href="#hakkinda">Hakkında</a></li>
+    <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+</nav>
+
+<section id="anasayfa">
+<!-- Hero Section -->
+    <section class="hero">
+      <h1>Öğrenme Stilini Keşfet, Eğitimini Dönüştür</h1>
+      <p>
+        Yapay zeka destekli öğrenme analizi platformu ile öğrencilerin
+        potansiyelini maksimuma çıkarın.
+      </p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Ücretsiz Deneme Başlat</a>
+        <a href="#" class="btn btn-secondary">Demo İzle</a>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="section-header">
+        <h2>Neden EduAI?</h2>
+        <p>
+          Yapay zeka teknolojisiyle eğitimde devrim yaratan çözümler sunuyoruz
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Gelişmiş Analiz</h3>
+          <p>
+            Öğrenci davranışlarını derinlemesine analiz ederek
+            kişiselleştirilmiş öğrenme yolları sunar.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👩‍🏫</div>
+          <h3>Öğretmen Desteği</h3>
+          <p>
+            Öğretmenlere sınıf yönetimi ve kişiselleştirilmiş eğitim planları
+            için güçlü araçlar sağlar.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Kişiselleştirilmiş Hedefler</h3>
+          <p>
+            Her öğrenci için özel olarak belirlenen hedeflerle başarıyı artırır.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>500+</h3>
+          <p>Mutlu Öğretmen</p>
+        </div>
+        <div class="stat-item">
+          <h3>10K+</h3>
+          <p>Analiz Edilen Öğrenci</p>
+        </div>
+        <div class="stat-item">
+          <h3>95%</h3>
+          <p>Başarı Oranı</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>Destek Hizmeti</p>
+        </div>
+      </div>
+    </section>
+
+    
+</section>
+<section id="hakkinda">
+<!-- About Section -->
+    <section class="about">
+      <div class="section-header">
+        <h1>Hakkımızda</h1>
+        <p>Eğitim teknolojilerinde yenilikçi çözümler sunan bir ekibiz</p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            EduAI, 2020 yılında eğitimde yapay zeka teknolojilerinin kullanımını
+            yaygınlaştırmak amacıyla kurulmuş bir girişimdir. Öğrencilerin
+            öğrenme stillerini analiz ederek kişiselleştirilmiş eğitim
+            deneyimleri sunan yenilikçi bir platform geliştirdik.
+          </p>
+          <p>
+            Teknoloji ve pedagojiyi bir araya getiren çözümlerimizle,
+            öğretmenlerin daha etkili ders planları oluşturmasına ve
+            öğrencilerin kendi öğrenme yollarını keşfetmesine yardımcı oluyoruz.
+          </p>
+          <p>
+            Ekibimiz, yapay zeka mühendisleri, eğitim uzmanları ve deneyimli
+            yazılımcılardan oluşmaktadır. Amacımız, eğitimde fırsat eşitliğini
+            sağlamak ve her öğrencinin potansiyelini ortaya çıkarmasına yardımcı
+            olmaktır.
+          </p>
+        </div>
+
+        <div class="mission-vision">
+          <div class="mission-card">
+            <h2>Misyonumuz</h2>
+            <p>
+              Eğitimde yapay zeka teknolojilerini kullanarak öğrenme süreçlerini
+              kişiselleştirmek ve her öğrencinin kendi potansiyelini
+              keşfetmesine yardımcı olmak.
+            </p>
+          </div>
+          <div class="vision-card">
+            <h2>Vizyonumuz</h2>
+            <p>
+              Eğitim teknolojilerinde küresel bir lider olmak ve yapay zeka
+              destekli öğrenme platformlarıyla eğitimde devrim yaratmak.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+      <div class="section-header">
+        <h1>Ekibimiz</h1>
+        <p>Alanında uzman ekibimizle eğitim teknolojilerine yön veriyoruz</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <img
+            src="https://randomuser.me/api/portraits/men/32.jpg"
+            alt="Ahmet Yılmaz"
+            class="member-img"
+          />
+          <h3>Ahmet Yılmaz</h3>
+          <p class="position">Kurucu & Yapay Zeka Uzmanı</p>
+          <p class="bio">
+            10 yılı aşkın süredir makine öğrenmesi alanında çalışıyor. Stanford
+            Üniversitesi'nde doktora yaptı.
+          </p>
+          <div class="social-links">
+            <a href="#">🔗</a>
+            <a href="#">📱</a>
+            <a href="#">💼</a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img
+            src="https://randomuser.me/api/portraits/women/44.jpg"
+            alt="Ayşe Demir"
+            class="member-img"
+          />
+          <h3>Ayşe Demir</h3>
+          <p class="position">Eğitim Teknolojileri Uzmanı</p>
+          <p class="bio">
+            15 yıllık öğretmenlik deneyiminin ardından eğitim teknolojilerine
+            yöneldi.
+          </p>
+          <div class="social-links">
+            <a href="#">🔗</a>
+            <a href="#">📱</a>
+            <a href="#">💼</a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img
+            src="https://randomuser.me/api/portraits/men/75.jpg"
+            alt="Mehmet Kaya"
+            class="member-img"
+          />
+          <h3>Mehmet Kaya</h3>
+          <p class="position">Yazılım Geliştirme Müdürü</p>
+          <p class="bio">
+            Full-stack developer olarak 8 yıldır çeşitli projelerde yer aldı.
+          </p>
+          <div class="social-links">
+            <a href="#">🔗</a>
+            <a href="#">📱</a>
+            <a href="#">💼</a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img
+            src="https://randomuser.me/api/portraits/women/68.jpg"
+            alt="Zeynep Şahin"
+            class="member-img"
+          />
+          <h3>Zeynep Şahin</h3>
+          <p class="position">Veri Bilimci</p>
+          <p class="bio">
+            Büyük veri analitiği ve öğrenci performans modelleme üzerine uzman.
+          </p>
+          <div class="social-links">
+            <a href="#">🔗</a>
+            <a href="#">📱</a>
+            <a href="#">💼</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+      <div class="section-header">
+        <h1>Tarihçemiz</h1>
+        <p>EduAI'nin kuruluşundan bugüne önemli kilometre taşları</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Ocak 2020</div>
+            <h3 class="timeline-title">Kuruluş</h3>
+            <p>EduAI, Kutay Büyükkiraz tarafından İstanbul'da kuruldu.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Haziran 2020</div>
+            <h3 class="timeline-title">İlk Prototip</h3>
+            <p>Öğrenci analiz platformunun ilk prototipi tamamlandı.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Mart 2021</div>
+            <h3 class="timeline-title">İlk Yatırım</h3>
+            <p>500.000$ değerinde tohum yatırım alındı.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Eylül 2021</div>
+            <h3 class="timeline-title">Beta Sürüm</h3>
+            <p>10 okulda beta testleri başladı.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Nisan 2022</div>
+            <h3 class="timeline-title">Genel Yayın</h3>
+            <p>Platform tüm kullanıcılara açıldı.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="section-header">
+        <h1>Ne Dediler?</h1>
+        <p>EduAI'yi kullanan eğitimcilerden yorumlar</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            EduAI sayesinde öğrencilerimin öğrenme stillerini anlamak ve
+            derslerimi buna göre planlamak çok kolaylaştı. Sınıfımdaki başarı
+            oranı %30 arttı.
+          </p>
+          <div class="testimonial-author">
+            <img
+              src="https://randomuser.me/api/portraits/women/63.jpg"
+              alt="Fatma Öztürk"
+              class="author-img"
+            />
+            <div class="author-info">
+              <h4>Fatma Öztürk</h4>
+              <p>Matematik Öğretmeni</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            Öğrencilerimin hangi konularda zorlandığını anında görebiliyorum. Bu
+            sayede onlara özel çalışma planları hazırlayabiliyorum.
+          </p>
+          <div class="testimonial-author">
+            <img
+              src="https://randomuser.me/api/portraits/men/81.jpg"
+              alt="Emre Can"
+              class="author-img"
+            />
+            <div class="author-info">
+              <h4>Emre Can</h4>
+              <p>Fen Bilimleri Öğretmeni</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            Okulumuzda uygulamaya başladığımızdan beri öğrenci memnuniyeti ve
+            başarısında ciddi artış gözlemliyoruz. Kesinlikle tavsiye ederim.
+          </p>
+          <div class="testimonial-author">
+            <img
+              src="https://randomuser.me/api/portraits/men/45.jpg"
+              alt="Hakan Yıldız"
+              class="author-img"
+            />
+            <div class="author-info">
+              <h4>Hakan Yıldız</h4>
+              <p>Okul Müdürü</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+</section>
+<section id="hizmetler">
+<!-- Services Section -->
+    <section class="services">
+      <div class="section-header">
+        <h1>Hizmetlerimiz</h1>
+        <p>Eğitim süreçlerinizi dönüştürecek çözümler sunuyoruz</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Öğrenci Analizi</h3>
+          <p>
+            Gelişmiş yapay zeka algoritmaları ile öğrencilerin öğrenme
+            stillerini, güçlü ve zayıf yönlerini analiz ediyoruz.
+          </p>
+          <a href="#" class="service-link">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👩‍🏫</div>
+          <h3>Öğretmen Paneli</h3>
+          <p>
+            Öğretmenlerin sınıf yönetimini kolaylaştıran ve kişiselleştirilmiş
+            eğitim planları oluşturmalarını sağlayan araçlar.
+          </p>
+          <a href="#" class="service-link">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎓</div>
+          <h3>Kişiselleştirilmiş Eğitim</h3>
+          <p>
+            Her öğrenciye özel öğrenme yolları ve içerik önerileri ile maksimum
+            başarı sağlayın.
+          </p>
+          <a href="#" class="service-link">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>Performans Takip</h3>
+          <p>
+            Öğrenci gelişimini detaylı raporlarla takip edin ve eğitim
+            stratejinizi buna göre şekillendirin.
+          </p>
+          <a href="#" class="service-link">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏫</div>
+          <h3>Okul Yönetim Sistemi</h3>
+          <p>
+            Okulunuzun tüm verilerini tek bir platformda yönetin ve eğitim
+            kalitesini artırın.
+          </p>
+          <a href="#" class="service-link">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>Entegrasyonlar</h3>
+          <p>
+            Mevcut eğitim sistemlerinizle uyumlu çalışan entegrasyon çözümleri
+            sunuyoruz.
+          </p>
+          <a href="#" class="service-link">Detaylı Bilgi <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+      <div class="section-header">
+        <h1>Fiyatlandırma</h1>
+        <p>İhtiyaçlarınıza uygun esnek paket seçenekleri</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Başlangıç</h3>
+          <div class="price">₺99<small>/ay</small></div>
+          <ul class="pricing-features">
+            <li>50 öğrenci analizi</li>
+            <li>Temel raporlar</li>
+            <li>E-posta desteği</li>
+            <li>1 öğretmen hesabı</li>
+            <li>Sınırlı özellikler</li>
+          </ul>
+          <button class="btn btn-outline">Paketi Seç</button>
+        </div>
+
+        <div class="pricing-card popular">
+          <div class="popular-badge">Popüler</div>
+          <h3>Profesyonel</h3>
+          <div class="price">₺299<small>/ay</small></div>
+          <ul class="pricing-features">
+            <li>250 öğrenci analizi</li>
+            <li>Gelişmiş raporlar</li>
+            <li>Öncelikli destek</li>
+            <li>5 öğretmen hesabı</li>
+            <li>Tüm özellikler</li>
+            <li>API erişimi</li>
+          </ul>
+          <button class="btn">Paketi Seç</button>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Kurumsal</h3>
+          <div class="price">Özel Fiyat</div>
+          <ul class="pricing-features">
+            <li>Sınırsız öğrenci</li>
+            <li>Özel raporlar</li>
+            <li>7/24 destek</li>
+            <li>Sınırsız öğretmen</li>
+            <li>Özel eğitimler</li>
+            <li>Özelleştirme</li>
+          </ul>
+          <button class="btn btn-outline">İletişime Geç</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+      <div class="section-header">
+        <h1>Paket Karşılaştırma</h1>
+        <p>Hangi paketin size uygun olduğuna karar verin</p>
+      </div>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Özellikler</th>
+            <th>Başlangıç</th>
+            <th>Profesyonel</th>
+            <th>Kurumsal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-name">Öğrenci Analizi</td>
+            <td class="available">50 öğrenci</td>
+            <td class="available">250 öğrenci</td>
+            <td class="available">Sınırsız</td>
+          </tr>
+          <tr>
+            <td class="feature-name">Öğretmen Hesabı</td>
+            <td class="available">1</td>
+            <td class="available">5</td>
+            <td class="available">Sınırsız</td>
+          </tr>
+          <tr>
+            <td class="feature-name">Rapor Çeşitleri</td>
+            <td class="available">Temel</td>
+            <td class="available">Gelişmiş</td>
+            <td class="available">Özel</td>
+          </tr>
+          <tr>
+            <td class="feature-name">Destek</td>
+            <td class="available">E-posta</td>
+            <td class="available">Öncelikli</td>
+            <td class="available">7/24</td>
+          </tr>
+          <tr>
+            <td class="feature-name">API Erişimi</td>
+            <td class="unavailable">Yok</td>
+            <td class="available">Var</td>
+            <td class="available">Var</td>
+          </tr>
+          <tr>
+            <td class="feature-name">Özelleştirme</td>
+            <td class="unavailable">Yok</td>
+            <td class="unavailable">Yok</td>
+            <td class="available">Var</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <div class="section-header">
+        <h1>Sık Sorulan Sorular</h1>
+        <p>Merak ettiğiniz soruların yanıtları</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>EduAI nasıl çalışır?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              EduAI, öğrencilerin öğrenme aktivitelerini analiz ederek
+              kişiselleştirilmiş öğrenme yolları oluşturan bir yapay zeka
+              platformudur. Öğrencilerin test sonuçları, ders katılımları ve
+              ödev performanslarını analiz ederek öğrenme stillerini belirler.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Hangi yaş grupları için uygun?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              EduAI ilkokul, ortaokul ve lise düzeyindeki öğrenciler için
+              uygundur. Farklı yaş gruplarına özel algoritmalar kullanıyoruz.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Veri güvenliği nasıl sağlanıyor?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Öğrenci verileri şifrelenmiş sunucularımızda saklanır ve KVKK'ya
+              uygun şekilde korunur. Verileriniz asla üçüncü taraflarla
+              paylaşılmaz.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Ücretsiz deneme sürümü var mı?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Evet, 14 gün boyunca ücretsiz olarak tüm özellikleri
+              deneyebilirsiniz. Kredi kartı bilgisi istemiyoruz.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Nasıl başlayabilirim?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Web sitemizden kayıt ol butonuna tıklayarak hemen
+              başlayabilirsiniz. Size özel bir demo ayarlamamızı isterseniz
+              iletişim sayfamızdan bize ulaşabilirsiniz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+</section>
+<section id="iletisim">
+<!-- Contact Section -->
+    <section class="contact">
+      <div class="section-header">
+        <h1>Bizimle İletişime Geçin</h1>
+        <p>
+          Her türlü soru, öneri veya iş birliği talepleriniz için bize
+          ulaşabilirsiniz.
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>İletişim Bilgileri</h2>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-content">
+              <h3>Adres</h3>
+              <p>Teknopark İstanbul, No:1/4 <br />Sanayi Mahallesi, İstanbul</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div class="info-content">
+              <h3>E-posta</h3>
+              <a href="mailto:info@eduai.com">info@eduai.com</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+              <h3>Telefon</h3>
+              <a href="tel:+90123456789">+90 123 456 78 90</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">⏱️</div>
+            <div class="info-content">
+              <h3>Çalışma Saatleri</h3>
+              <p>Pazartesi - Cuma <br />09:00 - 18:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>Mesaj Gönderin</h2>
+          <form>
+            <div class="form-group">
+              <label for="name">Adınız</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Adınızı girin"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-posta</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="E-posta adresiniz"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Konu</label>
+              <input
+                type="text"
+                id="subject"
+                class="form-control"
+                placeholder="Konu başlığı"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mesajınız</label>
+              <textarea
+                id="message"
+                class="form-control"
+                placeholder="Mesajınızı buraya yazın"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn">Mesajı Gönder</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.279637145478!2d28.87891131572657!3d41.0191793268918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb7abf29ba35%3A0xc98f44e9057adcde!2zVGVrbm9wYXJrIMSwc3RhbmJ1bA!5e0!3m2!1str!2str!4v1623256789012!5m2!1str!2str"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
+    
+</section>
+<!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>EduAI</h3>
+          <p>Yapay zeka ile eğitimin geleceğini şekillendiriyoruz.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Bağlantılar</h3>
+          <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="hakkinda.html">Hakkımızda</a></li>
+            <li><a href="hizmetler.html">Hizmetler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Hizmetler</h3>
+          <ul>
+            <li><a href="#">Öğrenci Analizi</a></li>
+            <li><a href="#">Öğretmen Paneli</a></li>
+            <li><a href="#">Eğitim Danışmanlığı</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>İletişim</h3>
+          <ul>
+            <li><a href="mailto:info@eduai.com">info@eduai.com</a></li>
+            <li><a href="tel:+90123456789">+90 123 456 78 90</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">© 2025 EduAI | Tüm Hakları Saklıdır.</div>
+    </footer>
+</body>
+</html>
